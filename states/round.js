@@ -31,7 +31,7 @@ export default {
     },
     lookup: {
       on: {
-        '': [
+        always: [
           {
             cond: 'sameLastCards',
             actions: 'resetCurrentPlayer',
