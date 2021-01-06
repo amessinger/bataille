@@ -38,13 +38,20 @@ export default {
             target: 'play',
           },
           {
-            target: 'end'
+            target: 'summary'
           }
         ]
       }
     },
-    end: {
+    summary: {
       entry: ['electRoundWinner', 'collectBoard'],
+      on: {
+        'NEXT': {
+          target: 'end'
+        }
+      }
+    },
+    end: {
       type: 'final'
     }
   }
