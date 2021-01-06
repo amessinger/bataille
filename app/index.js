@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 
 import { useMachine } from '@xstate/react';
-import machine from './machine.js';
+import machine from '../machine.js';
 
 function App() {
   const [state, send] = useMachine(machine);
