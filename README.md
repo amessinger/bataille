@@ -1,5 +1,7 @@
 # Bataille Card Game
 
+Should you want to "play" this game, head over to https://bataille.netlify.app
+
 Game rules: https://en.wikipedia.org/wiki/War_(card_game)
 
 Tech demo using [XState](http://xstate.js.org/) and [React](https://reactjs.org/).
