@@ -1,5 +1,7 @@
 # Bataille Card Game
 
+Game rules: https://en.wikipedia.org/wiki/War_(card_game)
+
 Tech demo using [XState](http://xstate.js.org/) and [React](https://reactjs.org/).
 
 The finite state machine code can be found in the [machine folder](./machine) and the react app code can be found in the [app folder](./app).
