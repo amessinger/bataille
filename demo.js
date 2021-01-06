@@ -1,5 +1,5 @@
 import { interpret } from 'xstate';
-import machine from './machine.js';
+import machine from './machine/index.js';
 
 const service = interpret(machine).onTransition(state => {
   console.log(state.context);
