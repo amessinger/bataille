@@ -2,7 +2,10 @@ import { assign } from 'xstate';
 
 export default {
   createDeck: assign({
-    deck: () => [...Array(52).keys()]
+    deck: () => [...Array(4).keys()].map(color =>
+      [...Array(13).keys()].map(value =>
+        ({ value, color}))
+    ).flat()
   }),
   resetBoard: assign({
     board: c => c.players.map(() => [])
@@ -37,7 +40,7 @@ export default {
   }),
   electRoundWinner: assign({
     roundWinnerId: c => {
-      const lastCards = c.board.map(stack => stack.slice(-1)[0]);
+      const lastCards = c.board.map(stack => stack.slice(-1)[0].value);
       return lastCards.indexOf(Math.max(...lastCards));
     }
   }),
