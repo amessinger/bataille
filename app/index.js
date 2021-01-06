@@ -1,10 +1,11 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, Fragment } from 'react';
 import { render } from 'react-dom';
 import { useMachine } from '@xstate/react';
 import { inspect } from "@xstate/inspect";
 import machine from '../machine/index.js';
 import Loading from './components/loading.js';
 import { getStateComponentName } from './utils.js';
+import CardStack from './components/card-stack.js';
 
 inspect({
   url: "https://statecharts.io/inspect",
@@ -21,6 +22,37 @@ function App() {
       <Suspense fallback={<Loading />}>
         <Component send={send} state={state} />
       </Suspense>
+
+      <div>
+        <h1>Deck</h1>
+        <CardStack cards={state.context.deck} />
+      </div>
+
+      <div>
+        <h1>Board</h1>
+        {state.context.board.map((side, index) => {
+          return (
+            <Fragment key={`player${index}`}>
+              <h1>Player #{index} Side</h1>
+              <CardStack cards={side} />
+            </Fragment>
+          );
+        })}
+      </div>
+
+      <div>
+        {state.context.players.map((player, index) => {
+          return (
+            <Fragment key={`player${index}`}>
+              <h1>Player #{index}</h1>
+              <h2>Hand</h2>
+              <CardStack cards={player.hand} />
+              <h2>Folds</h2>
+              <CardStack cards={player.folds} />
+            </Fragment>
+          );
+        })}
+      </div>
     </>
   );
 }
