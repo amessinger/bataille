@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
-    "web": "webpack serve --mode=development"
+    "web": "webpack serve --mode=development",
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "@xstate/react": "^1.2.2",

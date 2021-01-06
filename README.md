@@ -29,6 +29,10 @@ Should you care to allow popups on this page, a new tab allowing you to visualiz
 
 ![A live view of the state machine](./docs/state-machine-live-view-screenshot.png)
 
-## Notes
+### Notes
 
 If you're using [VS Code](https://code.visualstudio.com/) and the [remote container extension](https://code.visualstudio.com/docs/remote/containers), a dev container is available.
+
+## Production
+
+Run `yarn build` in a terminal in this folder.
