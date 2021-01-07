@@ -6,11 +6,12 @@ import machine from '../machine/index.js';
 import Loading from './components/loading.js';
 import { getStateComponentName } from './utils.js';
 import CardStack from './components/card-stack.js';
+import './style.css';
 
-inspect({
-  url: "https://statecharts.io/inspect",
-  iframe: false
-});
+// inspect({
+//   url: "https://statecharts.io/inspect",
+//   iframe: false
+// });
 
 function App() {
   const [state, send] = useMachine(machine, { devTools: true });
@@ -18,17 +19,19 @@ function App() {
   const Component = lazy(() => import(`./components/states/${getStateComponentName(state)}.js`));
 
   return (
-    <>
-      <Suspense fallback={<Loading />}>
-        <Component send={send} state={state} />
-      </Suspense>
+    <div className="game">
+      <div className="action">
+        <Suspense fallback={<Loading />}>
+          <Component send={send} state={state} />
+        </Suspense>
+      </div>
 
-      <div>
+      <div className="deck">
         <h1>Deck</h1>
         <CardStack cards={state.context.deck} />
       </div>
 
-      <div>
+      <div className="board">
         <h1>Board</h1>
         {state.context.board.map((side, index) => {
           return (
@@ -40,20 +43,20 @@ function App() {
         })}
       </div>
 
-      <div>
+      <div className="player-collection">
         {state.context.players.map((player, index) => {
           return (
-            <Fragment key={`player${index}`}>
+            <div className="player" key={`player${index}`}>
               <h1>Player #{index}</h1>
               <h2>Hand</h2>
               <CardStack cards={player.hand} />
               <h2>Folds</h2>
               <CardStack cards={player.folds} />
-            </Fragment>
+            </div>
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
 
