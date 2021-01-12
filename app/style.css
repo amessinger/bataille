@@ -1,6 +1,7 @@
 .game {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .action {
@@ -19,6 +20,8 @@
   padding: 1em;
   margin: 1em;
   border: 4px solid green;
+
+  display: flex;
 }
 
 .player-collection {
@@ -27,10 +30,47 @@
   border: 4px solid blue;
 
   display: flex;
+  flex-direction: row;
 }
 
 .player {
   padding: 1em;
   margin: 1em;
   border: 4px solid orange;
+}
+
+.card-stack {
+  display: flex;
+}
+
+.card {
+  padding: .25em;
+  margin: .25em;
+  border: 2px solid greenyellow;
+  height: 10em;
+  width: 7em;
+
+  position: relative;
+  display: flex;
+  
+  justify-content: center;
+}
+
+.card__value {
+  position: absolute;
+  padding: .25em;
+}
+
+.card__value:first-child {
+  top: 0;
+  left: 0;
+}
+
+.card__value:last-child {
+  bottom: 0;
+  right: 0;
+}
+
+.card__color {
+  align-self: center;
 }

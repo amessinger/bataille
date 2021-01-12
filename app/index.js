@@ -35,10 +35,10 @@ function App() {
         <h1>Board</h1>
         {state.context.board.map((side, index) => {
           return (
-            <Fragment key={`player${index}`}>
+            <div key={`player${index}`}>
               <h1>Player #{index} Side</h1>
               <CardStack cards={side} />
-            </Fragment>
+            </div>
           );
         })}
       </div>
