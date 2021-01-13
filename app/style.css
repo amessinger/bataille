@@ -56,6 +56,10 @@
   justify-content: center;
 }
 
+.card--face-down {
+  color: transparent;
+}
+
 .card__value {
   position: absolute;
   padding: .25em;

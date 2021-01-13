@@ -28,7 +28,7 @@ function App() {
 
       <div className="deck">
         <h1>Deck</h1>
-        <CardStack cards={state.context.deck} />
+        <CardStack cards={state.context.deck} isFaceDown={true} />
       </div>
 
       <div className="board">
@@ -48,9 +48,9 @@ function App() {
           return (
             <div className="player" key={`player${index}`}>
               <h1>Player #{index}</h1>
-              <h2>Hand</h2>
-              <CardStack cards={player.hand} />
-              <h2>Folds</h2>
+              <h2>Hand ({player.hand.length})</h2>
+              <CardStack cards={player.hand} isFaceDown={true} />
+              <h2>Folds ({player.folds.length})</h2>
               <CardStack cards={player.folds} />
             </div>
           );
