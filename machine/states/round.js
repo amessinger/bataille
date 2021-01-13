@@ -7,14 +7,12 @@ export default {
         'resetBoard'
       ],
       on: {
-        PLAY: {
-          actions: 'play',
+        always: {
           target: 'play'
         }
       }
     },
     play: {
-      entry: 'setNextPlayer',
       on: {
         PLAY: [
           {
@@ -23,7 +21,10 @@ export default {
             target: 'lookup'
           },
           {
-            actions: 'play',
+            actions: [
+              'play',
+              'setNextPlayer'
+            ],
             target: 'play'
           }
         ]
@@ -44,7 +45,10 @@ export default {
       }
     },
     summary: {
-      entry: ['electRoundWinner', 'collectBoard'],
+      entry: [
+        'electRoundWinner',
+        'collectBoard'
+      ],
       on: {
         'NEXT': {
           target: 'end'

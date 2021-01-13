@@ -8,10 +8,10 @@ import { getStateComponentName } from './utils.js';
 import CardStack from './components/card-stack.js';
 import './style.css';
 
-// inspect({
-//   url: "https://statecharts.io/inspect",
-//   iframe: false
-// });
+inspect({
+  url: "https://statecharts.io/inspect",
+  iframe: false
+});
 
 function App() {
   const [state, send] = useMachine(machine, { devTools: true });
